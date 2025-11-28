@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include <string.h>
+#pragma warning(disable:4996)
+
+int main(void) {
+	char arr1[9][5] = { {'A','B','C'},{'D','E','F'},
+		{'G','H','I'},{'J','K','L'},{'M','N','O'},{'P','Q','R','S'},
+		{'T','U','V'},{'W','X','Y','Z'},{'*','/','+','-','%'} };
+	char arr2[15] = {'\0'};
+	scanf("%s",arr2);
+	size_t len = strlen(arr2);
+	int cal = 0;
+	for (size_t i = 0; i < len; i++) {
+
+		for (int j = 0; j < 9; j++) {
+
+			for (int k = 0; k < 5; k++) {
+
+				if (arr2[i] == arr1[j][k])cal += j+2;
+			}
+		}
+	}
+
+	printf("%d", cal + (int)len);
+	return 0;
+}
