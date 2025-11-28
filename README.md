@@ -30,7 +30,7 @@ C++ STL이나 라이브러리에 의존하기보다, 포인터와 동적 할당�
 
 ## Convention
 - 문제의 영문명과 번호를 함께 기재하여 나중에 찾아보기 쉽도록 관리하고 있습니다.
-  (예: `Repainting Chessboard_1018.c`)
+  (예: Repainting Chessboard_1018.c)
   
 ## Environment
 - Language: C, C++
