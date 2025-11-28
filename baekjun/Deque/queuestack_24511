@@ -1,0 +1,113 @@
+#include<stdio.h>
+#pragma warning(disable:4996)
+#include <stdlib.h>
+typedef struct Node {
+	struct Node* next; //다음주소
+	struct Node* ex;
+	long long queuestack; //현재 큐스택
+}Node;
+
+void print(long long value,Node** phead, Node** ptail);
+void build_que(long long value, Node** phead, Node** ptail);
+void free_node(Node** phead, Node** ptail);
+int main(void) {
+	Node* head = NULL;
+	Node* tail = NULL;
+	static long long arr[100000];
+	long long buffer;
+	int N = 0,num2=0;
+	//큐스택 개수
+	scanf("%d", &N);
+	
+
+	for (int i = 0; i < N; i++) scanf("%lld",arr+i);
+		
+	//head가 null일때 고려
+	for (int i = 0; i < N; i++) {
+		scanf("%lld", &buffer);
+		if (!arr[i])build_que(buffer, &head, &tail);
+	}
+	scanf("%d", &num2);
+	for (int i = 0; i < num2; i++) {
+
+		scanf("%lld", &buffer);
+		print(buffer, &head, &tail);
+	}
+
+	free_node(&head, &tail);
+
+
+	return 0;
+}
+
+void print(long long value,Node** phead, Node** ptail)
+{
+	
+	if (!(*phead)) {
+		printf("%lld ", value);
+		return;
+	}
+	
+	printf("%lld ", (*ptail)->queuestack);
+	Node* Newnode;
+	
+	Newnode = (Node*)malloc(sizeof(Node));
+	if (!Newnode)return;
+	
+	Newnode->queuestack = value;
+	Newnode->next = *phead;
+	Newnode->ex = NULL;
+	(*phead)->ex = Newnode;
+	*phead = Newnode;
+
+	Node* delNode;
+	delNode = *ptail;
+	*ptail = (*ptail)->ex;
+	(*ptail)->next = NULL;
+	free(delNode);
+	return;
+}
+
+void build_que(long long value, Node** phead, Node** ptail)
+{
+	
+	Node* Newnode;
+	Newnode = (Node*)malloc(sizeof(Node));
+	if (!Newnode)return;
+	Newnode->queuestack = value;
+	
+	
+	if (!(*phead)) {
+		*phead = Newnode;
+		*ptail = Newnode;
+		Newnode->next = NULL;
+		Newnode->ex = NULL;
+		return;
+	}
+
+	else {
+		
+		Node* ex_node = *ptail;
+		*ptail = Newnode;
+		ex_node->next = Newnode;
+		Newnode->next = NULL;
+		Newnode->ex = ex_node;
+		return;
+	}
+}
+
+void free_node(Node** phead, Node** ptail)
+{
+	if (!(*phead))return;
+	
+	Node*cur=(*phead);
+	while (cur) {
+		Node* next_node = cur->next;
+		free(cur);
+		cur = next_node;
+ }
+	*phead = NULL;
+	*ptail = NULL;
+	
+
+}
