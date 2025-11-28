@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#pragma warning(disable:4996)
+
+
+
+#define Max 1000000
+int main(void) {
+	static char str[Max] = { 0 };
+	scanf("%s", str); //대소문자 아스키값 32차이 소문자가 32더큼
+	int a = 65;
+	int alphabet[26] = {NULL};
+	for (int i = 0; i < 26; i++) {
+		alphabet[i] = 65 + i;
+	}
+	int max_index = 0;
+	int count[26] = { 0 };
+	int length = (int)strlen(str);
+	for (int i = 0; i < length; i++) {
+		unsigned char c = (unsigned char)str[i];
+			if (c >= 'A' && c<='Z')
+			{
+				++count[c-'A'];
+
+			}
+			else if (c >= 'a' && c <= 'z') {
+				++count[c - 'a'];
+			}
+		
+
+	}
+	int max = count[0];
+	for (int i = 0; i < 26; i++) {
+		if (max < count[i]) {
+			max = count[i];
+			max_index = i;
+		}
+	}
+
+	for (int i = 0; i < 26; i++) {
+
+		for (int j = 0; j < 26; j++) {
+
+			if (max == count[i] && max == count[j] &&i != j) {
+				printf("?");
+				return 0;
+			}
+		}
+
+	}
+	printf("%c", alphabet[max_index]);
+	return 0;
+}
+
