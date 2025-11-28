@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+#pragma warning(disable:4996)
+
+int main(void) {
+	static int arr[10000];
+	arr[0] = 0, arr[1] = 0;
+	int M = 0, N = 0,sum=0;
+	scanf("%d%d", &M, &N);
+	for (int i = 2; i <= N; i++) {
+		arr[i] = i;
+	}
+
+	//에라토스 테네스의 채 이용
+	
+	for (int i = 2; 1LL * i * i <= N; i++) //제곱근까지만 따져도되니까 시간복잡도 최소화
+	{			
+		if (arr[i] == 0) continue;
+		
+		for (int j = i*i; j<= N; j+=i) {
+			arr[j] = 0;
+		}
+
+	}
+
+	for (int i = M; i <= N; i++) {
+
+		if (arr[i] != 0)sum += arr[i];
+	}
+	
+	if (sum)printf("%d\n", sum);
+	else {
+		printf("-1");
+		return 0;
+	}
+	for (int i = M; i <= N; i++) {
+     
+		if (arr[i] != 0) {
+			printf("%d", i);
+			break;
+		}
+	
+	}
+	
+	
+
+	return 0;
+}
+
