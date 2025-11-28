@@ -28,11 +28,11 @@
 임베디드 SW 엔지니어를 목표로 C언어 기반의 자료구조 구현과 알고리즘 풀이를 기록한 저장소입니다.
 C++ STL이나 라이브러리에 의존하기보다, 포인터와 동적 할당을 직접 다루며 메모리 구조를 학습하는 것이 목표입니다.
 
-## 📝 Convention
+## Convention
 - **파일명:** `Algorithm_ProblemName_Number.c` (예: `Repainting Chessboard_1018.c`)
 - 문제의 영문명과 번호를 함께 기재하여 나중에 찾아보기 쉽도록 관리하고 있습니다.
 
-## 🛠 Environment
+## Environment
 - **Language:** C, C++
 - **IDE:** Visual Studio, VS Code
 
