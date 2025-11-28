@@ -2,13 +2,13 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-//¹®ÀÚ¿­ ¸Ç¾Õ¿¡ »ğÀÔ
+//ë¬¸ìì—´ ë§¨ì•ì— ì‚½ì…
 #pragma warning(disable:4996)
 typedef struct Node {
 	char* str;
 	struct Node* next;
 
-}Node; // ±¸Á¶Ã¼ º¯¼ö ¼±¾ğ
+}Node; // êµ¬ì¡°ì²´ ë³€ìˆ˜ ì„ ì–¸
 
 typedef struct intNode {
 	int value;
@@ -31,20 +31,20 @@ int main(void) {
 
 	while (1) {
 		
-		printf("\n¸Ş´º ¹øÈ£ ÀÔ·ÂÇÏ¼¼¿ä.\n");
+		printf("\në©”ë‰´ ë²ˆí˜¸ ì…ë ¥í•˜ì„¸ìš”.\n");
 		(void)scanf("%d",&n);
 		switch (n) {
-		case 0: printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
+		case 0: printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
 			exit(0);
 		case 1:
-			printf("ÀÔ·ÂÇÑ ¹®ÀÚ¿­À» ´ÜÀÏ¿¬°á¸®½ºÆ®ÀÇ Á¦ÀÏ ¾Õ¿¡ Ãß°¡ÇØ¼­ Ãâ·ÂÇÕ´Ï´Ù\n");
-			printf("¹®ÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n");
+			printf("ì…ë ¥í•œ ë¬¸ìì—´ì„ ë‹¨ì¼ì—°ê²°ë¦¬ìŠ¤íŠ¸ì˜ ì œì¼ ì•ì— ì¶”ê°€í•´ì„œ ì¶œë ¥í•©ë‹ˆë‹¤\n");
+			printf("ë¬¸ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n");
 			(void)scanf("%s",array);
 			insert_char(array);
 			break;
 		case 2: 
-			printf("ÀÔ·ÂÇÑ ¼ıÀÚ¸¦ Á¤·ÄÇÏ¿© ¿¬°á¸®½ºÆ®·Î Ç¥½ÃÇÕ´Ï´Ù\n");
-			printf("Á¤¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n");
+			printf("ì…ë ¥í•œ ìˆ«ìë¥¼ ì •ë ¬í•˜ì—¬ ì—°ê²°ë¦¬ìŠ¤íŠ¸ë¡œ í‘œì‹œí•©ë‹ˆë‹¤\n");
+			printf("ì •ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n");
 			(void)scanf("%d", &num2);
 			lineupint(num2);
 			break;
@@ -60,16 +60,16 @@ int main(void) {
 
 void insert_char(char* p)
 {
-	static Node* head = NULL; //ÇÔ¼ö³»ºÎ¿¡¼­ ÇÑ¹ø¸¸ ÃÊ±âÈ­µÇ°í ÇÁ·Î±×·¥Á¾·áÀü±îÁö ±× °ªÀÌ À¯ÁöµÊ,Áï, ¹İº¹¹®¿¡ ÈÖ¸»¸®Áö¾ÊÀ½, Àü¿ªº¯¼öÃ³·³ »ç¿ë°¡´É
+	static Node* head = NULL; //í•¨ìˆ˜ë‚´ë¶€ì—ì„œ í•œë²ˆë§Œ ì´ˆê¸°í™”ë˜ê³  í”„ë¡œê·¸ë¨ì¢…ë£Œì „ê¹Œì§€ ê·¸ ê°’ì´ ìœ ì§€ë¨,ì¦‰, ë°˜ë³µë¬¸ì— íœ˜ë§ë¦¬ì§€ì•ŠìŒ, ì „ì—­ë³€ìˆ˜ì²˜ëŸ¼ ì‚¬ìš©ê°€ëŠ¥
 	Node* Newnode = (Node*)malloc(sizeof(Node));
-	char* array = (char*)malloc(strlen(p)+1);//¹è¿­±æÀÌ+1(NULL¹®ÀÚµµ Æ÷ÇÔ½ÃÄÑ¾ß Á¤È®È÷ÀĞÀ½
+	char* array = (char*)malloc(strlen(p)+1);//ë°°ì—´ê¸¸ì´+1(NULLë¬¸ìë„ í¬í•¨ì‹œì¼œì•¼ ì •í™•íˆì½ìŒ
 	if (Newnode == NULL) {
 
-		printf("Newnode µ¿ÀûÇÒ´ç ½ÇÆĞ.\n");
+		printf("Newnode ë™ì í• ë‹¹ ì‹¤íŒ¨.\n");
 		return;
 	}
 	else if (array == NULL) {
-		printf("array µ¿ÀûÇÒ´ç ½ÇÆĞ.\n");
+		printf("array ë™ì í• ë‹¹ ì‹¤íŒ¨.\n");
 		free(Newnode);
 		return;
 
@@ -81,7 +81,7 @@ void insert_char(char* p)
 		Newnode->str = array;
 		printf("[%s]\n", Newnode->str);
 		return;
-	}//Çìµå°¡ NULLÀÌ¸é ¿¬°áÀÌ ¾Æ¿¹ ¾ÈµÇ¾îÀÖÀ¸¹Ç·Î ¿¬°áÇÏ°í ´º³ëµå ¿¬°á strÀÌ ¹è¿­ °¡¸®Å°°Ô²û
+	}//í—¤ë“œê°€ NULLì´ë©´ ì—°ê²°ì´ ì•„ì˜ˆ ì•ˆë˜ì–´ìˆìœ¼ë¯€ë¡œ ì—°ê²°í•˜ê³  ë‰´ë…¸ë“œ ì—°ê²° strì´ ë°°ì—´ ê°€ë¦¬í‚¤ê²Œë”
 	
 	
 	Newnode->next = head;
@@ -92,16 +92,16 @@ void insert_char(char* p)
 		Newnode = Newnode->next;
 
 	}
-} // ³ëµå Á¤·Ä »ğÀÔ+¹®ÀÚ¿­ ³ëµå ÀüÃ¼ Á¦°Å Ãß°¡¹Ù¶÷
+} // ë…¸ë“œ ì •ë ¬ ì‚½ì…+ë¬¸ìì—´ ë…¸ë“œ ì „ì²´ ì œê±° ì¶”ê°€ë°”ëŒ
 
-void lineupint(int a)//³ëµå Á¤·Ä »ğÀÔ
+void lineupint(int a)//ë…¸ë“œ ì •ë ¬ ì‚½ì…
 {
 	static intNode* head = NULL;	
 	intNode* Newnode = (intNode*)malloc(sizeof(intNode));
 	
 	if (Newnode == NULL) {
 
-		printf("µ¿ÀûÇÒ´ç ½ÇÆĞ\n");
+		printf("ë™ì í• ë‹¹ ì‹¤íŒ¨\n");
 		return;
 	}
 	Newnode->next = NULL;
@@ -117,7 +117,7 @@ void lineupint(int a)//³ëµå Á¤·Ä »ğÀÔ
 		head = Newnode;
 		showif(head);
 		return;
-	}//2.°¡Àå ÀÛÀº °ª »ğÀÔ 
+	}//2.ê°€ì¥ ì‘ì€ ê°’ ì‚½ì… 
 
 	intNode* Curnode = head;
 	intNode* prevnode = head;
@@ -132,8 +132,8 @@ void lineupint(int a)//³ëµå Á¤·Ä »ğÀÔ
 		}
 		prevnode = prevnode->next;
 		showif(head);
-	}//3.ÀÏ¹İÀûÀÎ °ª »ğÀÔ
-	Curnode->next = Newnode; //4. °¡Àå Å« °ª »ğÀÔ
+	}//3.ì¼ë°˜ì ì¸ ê°’ ì‚½ì…
+	Curnode->next = Newnode; //4. ê°€ì¥ í° ê°’ ì‚½ì…
 	showif(head);
 
 }
