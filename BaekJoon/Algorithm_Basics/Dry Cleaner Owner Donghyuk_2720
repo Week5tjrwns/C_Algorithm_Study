@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#pragma warning(disable:4996)
+
+void cal_change(int a);
+int main(void) {
+	int T = 0;
+
+	
+	scanf("%d", &T);
+	int* ptr = (int*)calloc(T,sizeof(int));
+	for (int i = 0; i < T; i++) {
+		scanf("%d",ptr+i); // 각 TC의 거스름돈 배열에 저장
+
+	}
+	for (int i = 0; i < T; i++) {
+		cal_change(ptr[i]);
+		puts("");
+	}
+
+}
+
+void cal_change(int a)
+{
+	const int Quarter = 25;
+	const int Dime = 10;
+	const int Nickel = 5;
+	const int penny = 1;
+	
+	if (a == 0) {
+		printf("%d %d %d %d", 0, 0, 0, 0);
+		return;
+	}
+
+	int a1 = a / Quarter; //
+	
+	int b1 = (a - a1 * Quarter);
+	if (b1 == 0) {
+		printf("%d %d %d %d", a1, 0, 0, 0);
+		return;
+	}
+	int a2 = b1 / Dime;//
+	
+	int b2 = (a - a1 * Quarter - a2 * Dime);
+	if (b2 == 0) {
+		printf("%d %d %d %d", a1, a2, 0, 0);
+		return;
+	}
+	
+	int a3 = b2/ Nickel;//
+
+
+	int b3 = (a - a1 * Quarter - a2 * Dime - a3 * Nickel);
+	
+	if (b3 == 0) {
+		printf("%d %d %d %d", a1, a2, a3, 0);
+		return;
+	}
+	int a4 = b3 / penny;
+	printf("%d %d %d %d",a1,a2,a3,a4);
+}
