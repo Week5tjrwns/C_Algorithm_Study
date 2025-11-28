@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#pragma warning(disable:4996)
+
+
+
+int main(void) {
+
+	char str[1000] = { NULL };
+	scanf("%s", str);
+	
+	printf("%d",strlen(str));
+
+	return 0;
+}
