@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#pragma warning(disable:4996)
+#define Max 1000001
+
+
+int main(void) {
+	int count = 0;
+	static char arr[Max] = { 0 };
+	if (fgets(arr, Max, stdin) == NULL)return 0;//개행문자 포함 읽어옴
+	
+	size_t len = strlen(arr);
+	if (arr[len - 1] == '\n' && len > 0) {
+		arr[len - 1] = '\0';
+		--len;
+	}
+	
+	for (size_t i = 0; i < len; i++) {
+		if (arr[i] != ' ' && (i==0 || arr[i - 1] == ' ')) {
+			count++;
+		}
+	}
+	printf("%d", count);
+	return 0;
+}
+
