@@ -1,0 +1,101 @@
+#include <stdio.h>
+#include <stdlib.h>
+#pragma warning(disable:4996)
+
+typedef struct stack{
+	struct stack* next;
+	int value;
+}stack;
+
+stack* top_ptr = NULL;
+int main(void) {
+	int N = 0;
+	int num = 0;
+	scanf("%d", &N); //명령어 개수 입력받음
+	int top_num = 0; // top은 정수형으로 0부터 시작
+	int n = 0;
+	for (int i = 0; i < N; i++) {
+		scanf("%d", &n);//몇번째 명령인지 입력받음
+		switch (n)
+		{
+
+		case 1: {
+
+			stack* Newstack = (stack*)malloc(sizeof(stack));
+			if (Newstack == NULL) return 0; //??
+
+			Newstack->next = NULL;
+			scanf("%d", &num); // push할 숫자를 num에
+
+			if (top_ptr == NULL) {
+				top_ptr = Newstack;
+				top_ptr->value = num;
+				++top_num;
+				break;
+			}
+
+			Newstack->value = num;
+			Newstack->next = top_ptr;
+			top_ptr = Newstack;
+			++top_num;
+			break;
+
+		}
+		case 2:
+		{
+
+			if (top_ptr == NULL) {
+				printf("-1\n");
+				break;
+			}
+			else {
+				stack* del = top_ptr;
+				printf("%d\n", top_ptr->value);
+				top_ptr=top_ptr->next;
+				free(del);
+				--top_num;
+				break;
+			}
+			
+		}
+
+		case 3:
+		{
+
+			printf("%d\n", top_num);
+			break;
+		}
+		case 4:
+		{
+			if (!top_ptr) {
+				printf("1\n");
+			}
+			else printf("0\n");
+			break;
+		}
+	case 5:
+	{
+		if (!top_ptr)
+		{
+			printf("-1\n");
+		}
+		else {
+			printf("%d\n", top_ptr->value);
+		}
+		
+		break;
+	}
+
+		}
+
+	}
+
+	while (top_ptr) {
+		stack* del = top_ptr;
+		top_ptr = top_ptr->next;
+		free(del);
+	}
+	
+
+	return 0;
+}
