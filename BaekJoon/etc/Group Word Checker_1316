@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#pragma warning(disable:4996)
+
+
+
+bool check(char *arr);
+int main(void) {
+	char arr[101] = {'\0'};
+	int num = 0;
+	int count = 0;
+	int num2 = 0;
+	scanf("%d", &num);
+	
+	for (int i = 0; i < num; i++) {
+		scanf("%99s", arr);
+		num2=check(arr);
+		if (num2==1)++count;
+	}
+	
+	printf("%d", count);
+	return 0;
+}
+
+bool check(char* arr)
+{
+
+	for (int i = 0; *(arr + i)!='\0'; i++)
+	{  
+		if (arr[i] == arr[i + 1])continue;
+		
+		for (int j = i+1; *(arr + j)!='\0'; j++) {
+			if (arr[i]==arr[j]) {
+				return false;
+			}
+		}
+	}
+
+
+	return true;
+
+}
