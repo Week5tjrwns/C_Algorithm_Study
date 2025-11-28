@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#pragma warning(disable:4996)
+
+char* compare(char* a, char* b);
+int main(void) {
+	char num1[4] = { 0 }, num2[4] = { 0 };
+	scanf("%s%s",num1, num2);
+	char temp;
+	temp = num1[0];
+	num1[0] = num1[2];
+	num1[2] = temp;
+	
+	temp = num2[0];
+	num2[0] = num2[2];
+	num2[2] = temp;
+	printf("%s", compare(num1, num2));
+	
+
+}
+
+char* compare(char* a, char* b)
+{
+	
+	if (a[0] > b[0])return a;
+	else if (b[0] > a[0])return b;
+	
+	if (a[1] > b[1])return a;
+	else if (b[1] > a[1])return b;
+	
+	
+	if (a[2] > b[2])return a;
+	else if (b[2] > a[2])return b;
+
+	exit(0);
+}
