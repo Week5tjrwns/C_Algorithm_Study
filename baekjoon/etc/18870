@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#pragma warning(disable:4996)
+
+
+int main(void);
+int* ptr;
+int compare(const void *a, const void *b);
+int main(void) {
+    int num = 0; //qsort(정렬값 주소, 요소 개수, 요소의 개당 크기, 기준함수)
+    int N = 0;
+    scanf("%d", &N);
+    ptr = (int*)malloc(N * sizeof(int));
+    int* p = (int*)malloc(N * sizeof(int));
+    for (int i = 0; i < N; i++) {
+        scanf("%d", ptr + i);
+        *(p + i) = i;
+    }// p라는 배열 선언까지 완료
+    qsort(p, N, sizeof(int), compare);
+    
+
+    int* rank = (int*)malloc(N * sizeof(int));
+    rank[p[0]] = 0;
+    int cur_rank = 0;
+    for (int i = 1; i < N; i++) {
+        if (ptr[p[i]] != ptr[p[i - 1]])cur_rank++ ;
+         rank[p[i]] = cur_rank;
+    
+    }
+    for (int i = 0; i < N; i++) {
+
+        printf("%d ", rank[i]);
+    }
+    
+    free(ptr);
+    free(p);
+    free(rank);
+    // 중복은 고려 x 
+}
+
+int compare(const void *a, const void *b)
+{
+    int ia = *(const int*)a;
+    int ib = *(const int*)b;
+    if (ptr[ia] > ptr[ib])return 1;
+    else if (ptr[ia] < ptr[ib]) return -1;
+    else return 0;
+}
