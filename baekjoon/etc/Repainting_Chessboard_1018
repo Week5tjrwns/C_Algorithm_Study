@@ -1,0 +1,154 @@
+#include<stdio.h> 
+#include<stdlib.h>
+#pragma warning(disable:4996)
+
+int c1 = 0, c2 = 0;
+void checkif1(int l,int h,char**arr,char(*chess1)[8]);
+void checkif2(int l, int h, char**arr, char(*chess2)[8]);
+int line_up(int* arr);
+
+
+char chess1[8][8] = {
+	{'W','B','W','B','W','B','W','B'},
+	{'B','W','B','W','B','W','B','W'},
+	{'W','B','W','B','W','B','W','B'},
+	{'B','W','B','W','B','W','B','W'},
+	{'W','B','W','B','W','B','W','B'},
+	{'B','W','B','W','B','W','B','W'},
+	{'W','B','W','B','W','B','W','B'},
+	{'B','W','B','W','B','W','B','W'}
+};
+
+char chess2[8][8] = {
+	{'B','W','B','W','B','W','B','W'},
+	{'W','B','W','B','W','B','W','B'},
+	{'B','W','B','W','B','W','B','W'},
+	{'W','B','W','B','W','B','W','B'},
+	{'B','W','B','W','B','W','B','W'},
+	{'W','B','W','B','W','B','W','B'},
+	{'B','W','B','W','B','W','B','W'},
+	{'W','B','W','B','W','B','W','B'}
+};
+
+
+
+int main(void)
+{
+
+	int count = 0;
+	int row = 0, col = 0;
+	scanf("%d%d", &row, &col);
+
+
+
+
+
+	char** arr = (char**)malloc(row * sizeof(char*));
+
+	for (int i = 0; i < row; i++) {
+		arr[i] = (char*)malloc((col+1) * sizeof(char));
+	}
+
+	for (int i = 0; i < row; i++) {
+		scanf("%s", arr[i]);
+	}
+
+
+
+	
+	int compare[1849];
+
+
+	for (int i = 0; i < 1849; i++) {
+
+		compare[i] = 65;
+	}
+
+
+	
+	while (1) {
+
+		static int c = 0;
+		static int l = 7, h = 7; 
+		static int i1 = 0, j1 = 0;
+
+
+				
+	checkif1(i1, j1,arr, chess1);
+	checkif2(i1, j1,arr, chess2);
+		
+		
+		if (c1 >= c2) {
+			compare[c++] = c2;
+			c1 = 0, c2 = 0;
+		}
+		else {
+			compare[c++] = c1;  
+			c1 = 0; c2 = 0;
+		}
+	   		
+		if (l+1 < col) {
+			j1++;
+			++l;
+		}
+		else if (l+1 >= col&& h+1 < row) {
+			i1++;
+			j1 = 0;
+			++h;
+			l = 7;
+		}
+		else if (l+1>= col && h+1>= row)break;
+	}
+		
+	int min = 0;
+	min = line_up(compare);
+	printf("%d", min);
+	free(arr);
+	
+	
+	return 0;
+}
+
+void checkif1(int i1, int j1, char**arr, char(*chess1)[8])
+{
+	
+	for (int i = 0; i < 8; i++) {
+
+		for (int j = 0; j < 8; j++) {
+			if (arr[i1+i][j1+j] != chess1[i][j])++c1;
+		}
+
+
+	}
+	
+}
+
+void checkif2(int i1, int j1, char**arr, char(*chess2)[8])
+{
+	
+	for (int i = 0; i < 8; i++) {
+
+		for (int j = 0; j < 8; j++) {
+			if (arr[i1+i][j1+j] != chess2[i][j])++c2;
+		}
+	}
+	
+	}
+
+
+
+
+
+int line_up(int* arr)
+{
+	int min = arr[0];
+	
+	for (int i = 0; i < 1849; i++) {
+		if (min > arr[i]) {
+			min = arr[i];
+		}
+		
+	}	 
+	return min;
+}
+
