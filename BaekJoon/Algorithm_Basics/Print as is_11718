@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include <string.h>
+#pragma warning(disable:4996)
+
+int main(void) {
+	
+	static char arr[101] = {0};
+	while (fgets(arr, sizeof(arr), stdin)) {
+		printf("%s", arr);
+		
+	}
+
+	return 0;
+}
