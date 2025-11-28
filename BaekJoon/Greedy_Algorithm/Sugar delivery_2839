@@ -1,0 +1,92 @@
+#include <stdio.h>
+#include <stdbool.h>
+#pragma warning(disable:4996)
+
+
+bool checkif(int kg);
+int case3(int kg);
+int main(void) {
+	int kg = 0;
+	scanf("%d",&kg);
+	
+	//4. 그냥 3이랑 5로 조합해서 못만들때
+	if (checkif(kg) == false) {
+		printf("-1");
+		return 0;
+	}
+	int arr[3] = { -1,-1,-1 };
+	//1.  5kg으로만 다 처리
+	if (kg % 5 == 0) {
+		printf("%d", kg/5);
+		return 0;
+	} //정답 결정됨 
+	 
+	//2.  3kg 으로만
+	if (kg % 3 == 0)arr[1] = kg/3;
+	
+	//3. 3+5 조합 <- 5kg부터 고려해서
+	// 봉지 수 최대한 적게고려	
+	arr[2] = case3(kg);
+	
+
+
+
+	
+	
+	for (int i = 0; i < 3; i++) {
+		int temp;
+		for (int j = 0; i+j < 3; j++) {
+			if (arr[i] > arr[i+j]) {
+				temp = arr[i];
+				arr[i] = arr[i+j];
+				arr[i+j] = temp;
+
+			}
+		}
+	}
+	for (int i = 0; i < 3; i++) {
+		if (arr[i] != -1) {
+			printf("%d", arr[i]);
+			return 0;
+		}
+	}
+	
+	
+    
+
+
+	return 0;
+}
+
+bool checkif(int kg)
+{
+	int divide = kg;
+	if (divide % 5 == 0 || kg % 3 == 0)return true;
+	//5한번빼고 3으로 나눈나머지체크
+	//5두번빼고 3으로 나눈나머지체크
+	while ((divide - 5) >= 0) {
+		divide -= 5;
+		if (divide % 3 == 0)return true;
+	}
+
+	
+	return false;
+}
+
+int case3(int kg)
+{
+	int quotient3 = 0;
+	int Ans = -1;
+	for (int i = 0; (kg - i)>0 ; i +=5) {
+		int quotient5 = (kg - i) / 5;
+		if (((kg - 5*quotient5) % 3 == 0)) {
+			quotient3 = (kg-quotient5*5) / 3;
+			if (quotient3 == 0)continue;
+			Ans = quotient5 + quotient3;
+			return Ans;
+		}
+		
+	}
+	return Ans;
+
+}
