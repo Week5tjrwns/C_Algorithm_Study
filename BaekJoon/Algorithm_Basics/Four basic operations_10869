@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+#pragma warning(disable:4996)
+int main(void) {
+
+	int num1 = 0,num2 = 0;
+	scanf("%d%d", &num1, &num2);
+
+	int plus = num1 + num2;
+	int minus = num1 - num2;
+	int multiply = num1 * num2;
+	int divide = num1 / num2;
+	int remain = num1 % num2;
+	printf("%d\n%d\n%d\n%d\n%d\n", plus, minus, multiply, divide, remain);
+
+	return 0;
+}
