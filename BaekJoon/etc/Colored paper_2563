@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#pragma warning(disable:4996)
+
+int main(void) {
+	int T = 0;
+	static int paper[100][100] = { 0 };
+	int overlap = 0;
+	int x =0, y = 0;
+	int count = 0;
+	scanf("%d", &T);
+	for (int i = 0; i < T; i++) {
+		scanf("%d%d", &x, &y);
+		for (int j = x; j < x + 10; j++) {
+			for (int k = y; k < y + 10; k++) {
+				paper[j][k]=1;
+			}
+		}
+	}  // x축,y축과 떨어진 거리 저장됨
+	for (int i = 0; i < 100; i++) {
+		for (int j = 0; j < 100; j++) {
+
+			if (paper[i][j] == 1)count++;
+		}
+
+
+	}
+	 
+	printf("%d", count);
+
+
+
+	return 0;
+}
