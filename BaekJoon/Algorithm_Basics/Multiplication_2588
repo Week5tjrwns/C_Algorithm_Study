@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+#pragma warning(disable:4996)
+int main(void) {
+	int num1;
+	char num2[4];
+	
+	scanf("%d%s",&num1,num2);
+	int num3[4] = { num2[0] - 48,num2[1] - 48 ,num2[2] - 48 };
+	printf("%d\n%d\n%d\n%d", num1 * num3[2], num1 * num3[1], num1 * num3[0], num1 * num3[2] + 10*num1 * num3[1] + 100*num1 * num3[0]);
+
+
+
+
+	return 0;
+}
