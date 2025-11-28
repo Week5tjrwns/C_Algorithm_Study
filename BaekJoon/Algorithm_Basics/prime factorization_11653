@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+#pragma warning(disable:4996)
+int main(void) {
+
+	long long num = 0;
+	scanf("%lld", &num);
+		
+	while (num % 2==0) {
+			num /= 2;
+			printf("2\n");
+
+		}	
+
+	
+	for (long long j = 3; j * j <= num; j += 2) {
+
+		while (num % j==0) {
+			printf("%lld\n", j);
+			num /= j;
+		}
+	}
+
+	if (num > 1) {
+		printf("%lld\n",num);
+	}
+
+
+	return 0;
+}
+
