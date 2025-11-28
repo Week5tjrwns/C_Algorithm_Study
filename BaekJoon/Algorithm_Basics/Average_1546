@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#pragma warning(disable:4996)
+int main(void) {
+	 
+	int N = 0;//과목개수
+	(void)scanf("%d",&N);// 시험본 과목개수
+	while (getchar()!='\n');
+	int* p = (int*)malloc(N * sizeof(int));
+	for (int i = 0; i < N; i++) {
+		(void)scanf("%d",p+i );
+	}
+	int Max = p[0]; // 20 50 30 이렇게 있으면 일단 맥스값을 20점으로 초기화해 
+	float Max_avg = 0.0;
+	
+	for (int j = 1; j < N; j++) {
+		if (Max < p[j])Max = p[j];
+	}
+	for (int k = 0; k < N; k++)Max_avg += (((float)p[k] / Max) * 100);
+
+	printf("%.2f",Max_avg/N);
+	free(p);
+	return 0;
+}
