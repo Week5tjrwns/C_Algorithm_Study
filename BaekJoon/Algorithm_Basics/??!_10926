@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<stdlib.h>
+#pragma warning(disable:4996)
+
+int main(void) {
+	char arr[51];
+	scanf("%s",arr);
+	
+	printf("%s??!", arr);
+
+
+	return 0;
+}
