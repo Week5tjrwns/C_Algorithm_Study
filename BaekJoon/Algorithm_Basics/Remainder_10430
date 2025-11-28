@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+#pragma warning(disable:4996)
+int main(void) {
+
+	int A = 0,B = 0,C=0;
+	scanf("%d%d%d", &A, &B, &C);
+
+	int num11 = (A + B)%C;
+	int num22 = ((A%C)+(B%C))%C;
+	int num33 = (A*B)%C;
+	int num44 = ((A%C)*(B%C))%C;
+	printf("%d\n%d\n%d\n%d\n", num11, num22, num33, num44);
+
+	return 0;
+}
