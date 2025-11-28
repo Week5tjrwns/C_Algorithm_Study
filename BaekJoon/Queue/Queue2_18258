@@ -1,0 +1,133 @@
+#include<stdio.h>
+#pragma warning(disable:4996)
+#include <stdlib.h>
+#include<string.h>
+
+typedef struct Node{
+	int value;
+	struct Node* next;
+}Node;
+
+int push(Node **phead,Node **ptail,int data,int count);
+int pop(Node **phead,Node**ptail,int count);
+void size(Node *head,int count);
+void empty(Node*head);
+void front(Node*head);
+void back(Node*tail);
+
+
+int main(void) {
+	int N = 0;
+	scanf("%d", &N);
+	Node* head = NULL;
+	Node* tail = NULL;
+	int count = 0;
+	while(N-->0){
+		char str[20];
+		scanf(" %19[^\n]",str);
+		
+		
+		if (strstr(str,"push") != NULL) {
+			count=push(&head,&tail,(atoi(str+5)),count);
+		}
+		else if (strstr(str, "pop") != NULL) {
+			count=pop(&head,&tail,count);
+		}
+		else if (strstr(str, "size") != NULL) {
+		  size(head,count);
+			
+		}
+		else if (strstr(str, "empty") != NULL) {
+			empty(head);
+		}
+		else if (strstr(str, "front") != NULL) {
+			front(head);
+		}
+		else if (strstr(str, "back") != NULL) {
+			back(tail);
+		}
+	
+	}
+
+
+
+
+
+
+
+
+
+	
+}
+
+int push(Node** phead, Node** ptail,int data,int count)
+{
+	Node* Newnode;
+	Newnode = (Node*)malloc(sizeof(Node));
+	if (Newnode == NULL)return count;
+	Newnode->value = data;
+	Newnode->next = NULL;
+	count++;
+	if (*phead == NULL) {
+		*phead = Newnode;
+		*ptail = Newnode;
+		return count;
+	}
+	   (*ptail)->next= Newnode;
+	   (*ptail) = Newnode;
+	   return count;
+}
+                                                            
+int pop(Node** phead,Node**ptail,int count)
+{
+	if (*phead == NULL) {
+		puts("-1");
+		count = 0;
+		return count;
+	}
+	count--;
+	int display = (*phead)->value;
+	if ((*phead)->next == NULL) {
+		free(*phead);
+		printf("%d\n", display);
+		*phead = NULL;
+		*ptail = NULL;
+		return count;
+	}
+
+	Node* Curnode;
+	Curnode = (*phead)->next;
+	printf("%d\n",display);
+	free(*phead);
+	*phead = Curnode;
+	return count;
+}
+
+void size(Node* head,int count)
+{
+	if (head == NULL) {
+		puts("0");
+		return;
+	}
+	printf("%d\n", count);
+	return;
+}
+
+void empty(Node* head)
+{
+	if (head == NULL)puts("1");
+	else puts("0");
+}
+
+void front(Node* head)
+{
+	if (head == NULL)puts("-1");
+	else printf("%d\n", (head->value));
+
+}
+
+void back(Node* tail)
+{
+	if (tail == NULL)puts("-1");
+	else printf("%d\n", (tail->value));
+}
