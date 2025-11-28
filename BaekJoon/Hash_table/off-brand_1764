@@ -1,0 +1,83 @@
+#include <stdio.h>
+#pragma warning(disable:4996)
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int cmp(const void* a, const void* b);
+long long hasing(char* str);
+int main(void) {
+	static char ans[500000][21];
+	static char* ptr[1000003];
+	static char str[1000003][21];
+	int N = 0, M = 0;
+	int cnt = 0;
+	for (int i = 0; i < 1000003; i++) {
+		ptr[i] = str[i];
+	}
+	
+	scanf("%d %d", &N, &M);
+	static char buffer[21];
+	static char buffer2[21];
+	for (int i = 0; i < N; i++) {
+		scanf(" %20[^\n]\n", buffer);
+		
+		long long key=hasing(buffer);
+		// 해싱하고 반환키값을 이용해 배열인덱스에 찾아가 저장
+		while (ptr[key][0] != '\0'&& strcmp(ptr[key], buffer) != 0) {
+
+			key = (key + 1) % 1000003;
+		}
+
+		strcpy(ptr[key], buffer);
+
+
+		
+		// 문자열 해싱해서 배열에 넣었음
+	
+	
+	
+	}
+
+
+	for (int i = 0; i < M; i++) {
+		scanf(" %20[^\n]", buffer2);
+		long long key2 = hasing(buffer2);
+		while (ptr[key2][0] != '\0' && strcmp(ptr[key2], buffer2) != 0) {
+			key2 = (key2 + 1) % 1000003;
+		}
+		if (strcmp(ptr[key2], buffer2) == 0)strcpy(ans[cnt++], buffer2);
+	}
+
+	
+
+	qsort(ans, cnt, 21, cmp);
+
+	printf("%d\n", cnt);
+	for (int i = 0; i < cnt; i++) {
+		printf("%s\n", ans[i]);
+	}
+
+
+	return 0;
+}
+
+long long hasing(char* str)
+{
+	long long hash_value = 0;
+	size_t len =strlen(str);
+	int len_int = (int)len;
+	int prime_num = 31;
+	long long p_pow = 1;
+	int M = 1000003;
+	for (int i = 0; i <len_int; i++) {
+		hash_value = (hash_value + (str[i] * p_pow)) % M;
+
+		p_pow = (p_pow * prime_num) % M;
+
+	}
+	return hash_value%1000003;
+}
+int cmp(const void* a, const void* b) {
+	return strcmp((const char*)a, (const char*)b);
+}
