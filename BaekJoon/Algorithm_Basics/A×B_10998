@@ -1,0 +1,15 @@
+#include<stdio.h>
+
+#pragma warning(disable:4996)
+
+int main(void){
+
+    int num1=0;
+
+    int num2=0;
+
+    scanf("%d%d",&num1,&num2);
+
+    printf("%d",num1*num2);
+
+}
