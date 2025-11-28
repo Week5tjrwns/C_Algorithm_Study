@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#pragma warning(disable:4996)
+
+
+
+int main(void) {
+
+	int T = 0;
+	int len = 0;
+	scanf("%d", &T);
+	char** ptr = (char**)malloc(T * sizeof(char*));
+	for (int i = 0; i < T; i++) {
+		ptr[i] = (char*)malloc(1001 * sizeof(char)); 
+		scanf("%s", ptr[i]);
+	}
+	
+	for (int i = 0; i < T; i++) {
+		len = strlen(ptr[i]);
+		printf("%c%c", ptr[i][0], ptr[i][len - 1]);
+		puts("");
+	}
+
+
+
+	return 0;
+}
