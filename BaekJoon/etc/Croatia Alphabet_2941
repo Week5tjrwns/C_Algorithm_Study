@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#pragma warning(disable:4996)
+
+int main(void) {
+		
+	static char arr[100] = {0};
+	scanf("%s", arr);
+	int len = (int)strlen(arr);
+
+	int count = 0;
+	for (int i = 0; i < len; i++) {
+		count++;
+		if (arr[i] == 'c' && (arr[i + 1] == '=' || arr[i + 1] == '-'))
+		{
+			count--;
+	     }
+		else if (arr[i] == 'd' && arr[i + 1] == 'z' && arr[i + 2] == '=')
+		{
+			i =i+ 2;
+			continue;
+		}
+		else if(arr[i] == 'd' && arr[i + 1] == '-')count--;
+		else if (arr[i] == 'l' && arr[i + 1] == 'j')count--;
+		else if (arr[i] == 'n' && arr[i + 1] == 'j')count--;
+		else if (arr[i] == 's' && arr[i + 1] == '=')count--;
+		else if (arr[i] == 'z' && arr[i + 1] == '=')count--;
+	}
+	
+	printf("%d", count);
+	return 0;
+	}
+
+	
+
+
+
+
+
+
+
+
