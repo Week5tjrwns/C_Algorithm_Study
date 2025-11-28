@@ -28,27 +28,28 @@
 임베디드 SW 엔지니어를 목표로 C언어 기반의 자료구조 구현과 알고리즘 풀이를 기록한 저장소입니다.
 C++ STL이나 라이브러리에 의존하기보다, 포인터와 동적 할당을 직접 다루며 메모리 구조를 학습하는 것이 목표입니다.
 
-## 📂 학습 내용 (Contents)
+## 📝 Convention
+- **파일명:** `Algorithm_ProblemName_Number.c` (예: `Repainting Chessboard_1018.c`)
+- 문제의 영문명과 번호를 함께 기재하여 나중에 찾아보기 쉽도록 관리하고 있습니다.
 
-### 1. 자료구조 구현 (Data Structures)
+## 🛠 Environment
+- **Language:** C, C++
+- **IDE:** Visual Studio, VS Code
+
+## 📂 Contents
+
+### Data Structures
 Linked_List, Stack, Queue, Deque, Hash_table
 - 배열과 포인터를 활용하여 주요 자료구조를 바닥부터 구현합니다.
 - 각 자료구조의 삽입/삭제 연산 시 메모리 동작 과정을 코드로 확인합니다.
 
-### 2. 알고리즘 분류 (Algorithms)
+### Algorithms
 Brute_Force, Greedy_Algorithm, Sorting
 - Brute Force: 모든 경우의 수를 탐색하며 예외 케이스를 놓치지 않는 연습
 - Greedy: 최적해를 찾아가는 로직 설계
 - Sorting: 버블, 선택, 삽입 정렬 등 정렬 알고리즘의 시간 복잡도 이해
 
-### 3. 백준 문제 풀이 (BaekJoon)
+### BaekJoon
 - 폴더명: BaekJoon
-- 구현(Implementation), 문자열 처리 등 다양한 유형의 문제를 풀며 언어 숙련도를 높이는데 초점을 두었습니다.
+- 구현, 문자열 처리 등 다양한 유형의 문제를 풀며 언어 숙련도를 높이는데 초점을 두었습니다.
 
-## 📝 규칙 (Convention)
-- **파일명:** `Algorithm_ProblemName_Number.c` (예: `Repainting Chessboard_1018.c`)
-- 문제의 영문명과 번호를 함께 기재하여 나중에 찾아보기 쉽도록 관리하고 있습니다.
-
-## 🛠 환경 (Environment)
-- **Language:** C, C++
-- **IDE:** Visual Studio, VS Code
