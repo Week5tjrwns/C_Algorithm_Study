@@ -27,18 +27,18 @@ int main(void) {
 	int newvalue = 0;
 	while (1) {
 		
-		printf("\n####¿¬°á ¸®½ºÆ® ÃßÀû####\n");
-		printf("1¹ø:¿¬°á ³ëµå Á¦ÀÏ ¾Õ¿¡ Ãß°¡(ÀÔ·Â°ª:³ëµåÀÇ value)\n");
-		printf("2¹ø:¿¬°á ³ëµå °ª ¼øÈ¸ÇÏ¸ç º¸¿©ÁÜ\n");
-		printf("3¹ø:µ¿Àû ¸Ş¸ğ¸® ÇØÁ¦\n");
-		printf("4¹ø:³ëµå Á¦ÀÏ µÚ¿¡ Ãß°¡\n");
-		printf("5¹ø:¼±ÅÃ ³ëµå »èÁ¦\n");
-		printf("0¹ø:Á¾·á\n");
+		printf("\n####ì—°ê²° ë¦¬ìŠ¤íŠ¸ ì¶”ì ####\n");
+		printf("1ë²ˆ:ì—°ê²° ë…¸ë“œ ì œì¼ ì•ì— ì¶”ê°€(ì…ë ¥ê°’:ë…¸ë“œì˜ value)\n");
+		printf("2ë²ˆ:ì—°ê²° ë…¸ë“œ ê°’ ìˆœíšŒí•˜ë©° ë³´ì—¬ì¤Œ\n");
+		printf("3ë²ˆ:ë™ì  ë©”ëª¨ë¦¬ í•´ì œ\n");
+		printf("4ë²ˆ:ë…¸ë“œ ì œì¼ ë’¤ì— ì¶”ê°€\n");
+		printf("5ë²ˆ:ì„ íƒ ë…¸ë“œ ì‚­ì œ\n");
+		printf("0ë²ˆ:ì¢…ë£Œ\n");
 
 
 		scanf_s("%d", &menu);
 		while (menu<0||menu>5) {
-			printf("¸Ş´º ¹øÈ£¸¦ ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä\n");
+			printf("ë©”ë‰´ ë²ˆí˜¸ë¥¼ ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”\n");
 			scanf_s("%d", &menu);
 			if (menu<5 && menu>=0)
 			{
@@ -48,7 +48,7 @@ int main(void) {
 
 		switch (menu) {
 		case 1:
-			printf("½Å±Ô ³ëµå ¸Ç ¾Õ¿¡ »ğÀÔÇÒ value°ªÀ» ÀÔ·ÂÇÏ¼¼¿ä.\n");
+			printf("ì‹ ê·œ ë…¸ë“œ ë§¨ ì•ì— ì‚½ì…í•  valueê°’ì„ ì…ë ¥í•˜ì„¸ìš”.\n");
 			scanf_s("%d", &newvalue);
 			insert_node_front(newvalue);
 			system("cls");
@@ -61,27 +61,27 @@ int main(void) {
 
 
 		case 3:
-			printf("µ¿Àû¸Ş¸ğ¸® ÇØÁ¦\n");
+			printf("ë™ì ë©”ëª¨ë¦¬ í•´ì œ\n");
 			free_memory();
 			break;
         
         
 		case 4:
-			printf("½Å±Ô ³ëµå ¸Ç µÚ¿¡ »ğÀÔÇÒ value°ªÀ» ÀÔ·ÂÇÏ¼¼¿ä.\n");
+			printf("ì‹ ê·œ ë…¸ë“œ ë§¨ ë’¤ì— ì‚½ì…í•  valueê°’ì„ ì…ë ¥í•˜ì„¸ìš”.\n");
 			scanf_s("%d", &newvalue);
 			insert_node_rear(newvalue);
 			system("cls");
 			break;
 
 		case 5:
-			printf("»èÁ¦ÇÒ n¹øÂ° ³ëµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n");
+			printf("ì‚­ì œí•  në²ˆì§¸ ë…¸ë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”.\n");
 			scanf_s("%d", &deletenode);
 			delete_node(deletenode);
 			break;
 
   		case 0:
 			
-			printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.");
+			printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 			exit(0);
 
 
@@ -98,7 +98,7 @@ void insert_node_front(int a)
 	
 	Node* NewNode = (Node*)malloc(sizeof(Node)); 
 	if (NewNode == NULL) {
-		printf("µ¿ÀûÇÒ´ç½ÇÆĞ");
+		printf("ë™ì í• ë‹¹ì‹¤íŒ¨");
 		return;
 	}
 	NewNode->next = NULL;
@@ -115,7 +115,7 @@ void insert_node_rear(int a)
 {
 	Node* Newnode = (Node*)malloc(sizeof(Node));
 	if (Newnode == NULL) {
-		printf("µ¿ÀûÇÒ´ç½ÇÆĞ.\n");
+		printf("ë™ì í• ë‹¹ì‹¤íŒ¨.\n");
 		return;
 	}
 	Newnode->value = a;
@@ -139,11 +139,11 @@ void insert_node_rear(int a)
 void delete_node(int a)
 {
 	if (a <= 0) {
-		printf("Àß¸øµÈ À§Ä¡: 1 ÀÌ»óÀÇ °ªÀ» ÀÔ·ÂÇÏ¼¼¿ä.\n");
+		printf("ì˜ëª»ëœ ìœ„ì¹˜: 1 ì´ìƒì˜ ê°’ì„ ì…ë ¥í•˜ì„¸ìš”.\n");
 		return;
 	}
 	if (head == NULL) {
-		printf("»èÁ¦ÇÒ ³ëµå°¡ ¾ø½À´Ï´Ù.\n");
+		printf("ì‚­ì œí•  ë…¸ë“œê°€ ì—†ìŠµë‹ˆë‹¤.\n");
 		return;
 	}
 
@@ -152,7 +152,7 @@ void delete_node(int a)
 		Node* to_delete = head;
 		head = head->next;
 		free(to_delete);
-		printf("»èÁ¦ ¿Ï·á.\n");
+		printf("ì‚­ì œ ì™„ë£Œ.\n");
 		return;
 	}
 
@@ -170,14 +170,14 @@ void delete_node(int a)
 
 	
 	if (delnode == NULL) {
-		printf("%d¹øÂ° ³ëµå´Â Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n", a);
+		printf("%dë²ˆì§¸ ë…¸ë“œëŠ” ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n", a);
 		return;
 	}
 
 	
 	prevnode->next = delnode->next;
 	free(delnode);
-	printf("%d¹øÂ° ³ëµå »èÁ¦ ¿Ï·á.\n", a);
+	printf("%dë²ˆì§¸ ë…¸ë“œ ì‚­ì œ ì™„ë£Œ.\n", a);
 }
 
 	
@@ -187,7 +187,7 @@ void display(void)
 
 	if (head == NULL) {
 
-		printf("Ãâ·ÂÇÒ ³ëµå°¡ ¾ø½À´Ï´Ù.³ëµå »ı¼ººÎÅÍ ÇÏ¼¼¿ä.\n");
+		printf("ì¶œë ¥í•  ë…¸ë“œê°€ ì—†ìŠµë‹ˆë‹¤.ë…¸ë“œ ìƒì„±ë¶€í„° í•˜ì„¸ìš”.\n");
 		return;
 	}
 	Curnode = head;
@@ -198,7 +198,7 @@ void display(void)
 		printf(" => %d", Curnode->value);
 		
 	}
-	printf("=> NULL°ª");
+	printf("=> NULLê°’");
 	
 }
 
