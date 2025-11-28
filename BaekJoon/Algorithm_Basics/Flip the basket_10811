@@ -1,0 +1,27 @@
+#include <stdio.h>
+#pragma warning(disable:4996)
+
+int main(void) {
+	int N = 0, M = 0, count=0;
+
+	(void)scanf("%d %d", &N, &M);
+
+	int arr[100];
+	for (int i = 0; i < 100; i++)arr[i] = i+1;
+
+	while (count < M) {
+		int i = 0, j = 0, i2 = 0, j2 = 0;
+		(void)scanf("%d %d",&i, &j);
+		
+		for (i; i <= j; i++) {
+			i2 = arr[i-1];
+			j2 = arr[j-1];
+			arr[i-1] = j2;
+			arr[j-1] = i2;
+			j--;
+		}
+		count++;
+	}
+	for (int i = 0; i < N; i++)printf("%d ", arr[i]);
+	return 0;
+}
