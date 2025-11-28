@@ -41,15 +41,15 @@ C++ STL이나 라이브러리에 의존하기보다, 포인터와 동적 할당�
 ### Data Structures
 Linked_List, Stack, Queue, Deque, Hash_table
 - 배열과 포인터를 활용하여 주요 자료구조를 바닥부터 구현
-- 각 자료구조의 삽입/삭제 연산 시 메모리 동작 과정
+- 각 자료구조의 삽입/삭제 연산 시 메모리 동작 
 
 ### Algorithms
 Brute_Force, Greedy_Algorithm, Sorting
 - Brute Force: 모든 경우의 수를 탐색
-- Greedy: 최적해를 찾아가는 로직 설계
+- Greedy: 최적해를 찾는 로직 설계
 - Sorting: 버블, 선택, 삽입 정렬 등 정렬 알고리즘의 시간 복잡도 이해
 
 ### BaekJoon
 - 폴더명: BaekJoon
-- 구현, 문자열 처리 등 다양한 유형의 문제를 풀며 언어 숙련도를 높이는데 초점을 두었습니다.
+- 구현, 문자열 처리 등 다양한 유형의 문제
 
