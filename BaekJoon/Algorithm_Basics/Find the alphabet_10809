@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#pragma warning(disable:4996)
+
+
+
+
+void findchar(char* a,size_t size);
+int main(void) {
+	char str[100] = {0};
+	scanf("%s",str);
+	findchar(str,strlen(str));
+	
+
+	return 0;
+}
+
+void findchar(char* a, size_t size)
+{
+	for (int i = 97; i <= 122; i++) {
+
+		for (int j = 0; j < size; j++) {
+			if (*(a + j) == i) {
+				printf("%d ", j);
+				break;
+			}
+			else if (j == size - 1)printf("-1 ");
+
+		}
+
+
+
+
+
+	}
+}
+ 
+
+
